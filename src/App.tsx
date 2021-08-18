@@ -1,46 +1,17 @@
 import React from 'react'
-import { useAppDispatch, useAppSelector } from './app/hooks';
-import {incremented, decremented, amountAdded} from './features/counter/couter-slice'
+import Counter from './features/counter/Counter'
 import logo from './logo.svg'
 import './App.css'
 
 const App = () => {
-  const count = useAppSelector(state => state.counter.value)
-  const dispatch = useAppDispatch()
-
-  const incrementedHandler = () => {
-    dispatch(incremented())
-  }
-
-  const decrementedHandler = () => {
-    dispatch(decremented())
-  }
-
-  const amountAddedHandler = () => {
-    dispatch(amountAdded(10))
-  }
-
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Hello Vite + React!</p>
 
-
-        <p>
-          count is: {count} <br /><br />
-          <button type="button" onClick={incrementedHandler}>
-            Increment
-          </button>
-
-          <button type="button" onClick={decrementedHandler}>
-            Decrement
-          </button>
-
-          <button type="button" onClick={amountAddedHandler}>
-            Increment by 10
-          </button>
-        </p>
+        <Counter />
+   
         <p>
           Edit <code>App.tsx</code> and save to test the updates.
         </p>
